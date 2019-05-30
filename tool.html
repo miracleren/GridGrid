@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>layui</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+	<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	<script src="./layui/layui.js" charset="utf-8"></script>
+	<script src="./js/jquery-3.3.1.js" charset="utf-8"></script>
+	<style type="text/css">
+	body{
+		padding: 20px;
+	}
+</style>
+</head>
+<body style="height: 100%;position: fixed;width: 100%;">
+<form>
+	<blockquote class="layui-elem-quote layui-text">
+		表格数据多选  源码及说明：https://github.com/miracleren/GridGrid
+	</blockquote>
+	<div class="layui-form-item">
+		<table id="gridCar" name="gridCar" values-key="VEHICLEID" lay-filter="gridCar"> </table>
+	</div>
+	<!-- 选择下拉框初始化 -->
+	<script src="./js/GridGrid.js" charset="utf-8"></script>
+	<script src="./js/data.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#gridCar").GridGrid({
+                height: "300px",
+                width:"300px",
+                url: "",
+                cols: [[
+                    { field: "VEHICLENUM", title: "车牌号", sort: true ,width:150},
+                    { field: "VEHICLETYPE", title: "车型", sort: true },
+                    { field: "ALLOWMAXLOADAMT", title: "装载量", sort: true }
+                ]],
+                area: ['500', '300'],
+                multiple: true,
+                data:cardata,
+                selected:function(val){
+                	//选定行值 
+                	console.log(val);
+                	//选定的所有值 
+                	console.log($("#gridCar").GridGridValue());
+                },
+                done:function(){
+                	console.log("gridGrid is ok!");
+                }
+            });
+		});
+	</script>
+</form>
+</body>
+</html>
