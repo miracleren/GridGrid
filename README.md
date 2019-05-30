@@ -47,4 +47,4 @@ $(function(){
 ```
 
 ## 运行效果如下
-![image](https://github.com/miracleren/tagTree/blob/master/img/show.png)
+![image](https://github.com/miracleren/GridGrid/blob/master/pic/show.png)
